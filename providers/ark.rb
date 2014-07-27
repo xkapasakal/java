@@ -139,7 +139,7 @@ action :install do
        when /^.*\.bin/
          cmd = shell_out(
                                   %Q[ cd "#{Chef::Config[:file_cache_path]}";
-                                      bash ./#{tarball_name} -noregister
+                                      echo yes | bash ./#{tarball_name} -noregister
                                     ] )
          unless cmd.exitstatus == 0
            Chef::Application.fatal!("Failed to extract file #{tarball_name}!")
